@@ -69,12 +69,15 @@
       const output = document.getElementById("output");
       output.classList.remove("error");
       quote = quote.replaceAll(/\n|\r/gmi, ' ').replaceAll(/\"/gmi,"'");
-      if (pgNum && quote) {
+      if (pgNum && quote && (pgNum > 0)) {
         output.textContent = `"${quote}" (${pgNum})`;
-      } else if (quote) {
+      } else if (quote && !pgNum) {
         output.textContent = `"${quote}"`;
-      } else {
+      } else if (!quote) {
         output.textContent = "Quote cannot be empty";
+        output.classList.add("error");
+      } else if (pgNum <= 0){
+        output.textContent = "Page Number must be above 0";
         output.classList.add("error");
       }
        
