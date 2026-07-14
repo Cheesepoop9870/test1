@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Page Title</title>
+<style>
+body,textarea,button {
+  font-family: "arial";
+}
+.aa {
+  height: 200px;
+}
+.aa::placeholder {
+  vertical-align: top;
+}
+
+</style>
+</head>
+
+
 <body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+
+<label for="name">What is your name?
+</label>
+<p></p>
+<textarea type="text" name="name" class="aa" id="userInput" placeholder="Type your name" autocomplete="off">
+</textarea>
+<p></p>
+<input type="number">
+<button id="submitBtn">Submit</button>
+
+<p id="output"></p>
+
 <script>
-  doc = fetch('https://wikidot.com');
-  console.log(doc);
+  // JavaScript Logic
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    // 1. Get input value
+    const name = document.getElementById("userInput").value; 
+    // 2. Display output text on the page
+    document.getElementById("output").textContent = `Hello, ${name}!`; 
+  });
 </script>
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+
+
 
 </body>
 </html>
+
+
